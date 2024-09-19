@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --sl-font: 'weikai';
+  --sl-content-width: 70rem;
+  --sl-code-font-size: 20px;
+  .expressive-code pre > code {
+    font-size: 15px !important;
+  }
+}
