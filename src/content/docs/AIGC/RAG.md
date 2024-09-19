@@ -33,8 +33,9 @@ RAG是一种结合了检索和生成技术的AI技术，它通过在大量文本
 
 
 
-## 加载数据(Loading Data (Ingestion))
 
+## 开始构建一个RAG pipeline
+### 加载数据(Loading Data (Ingestion))
 **从此处我们开始研究 Llamaindex 的每个环节,Llamaindex 是一个成熟的开源LLM数据处理方案**
 1. 使用 SimpleDirectoryReader 加载数据
 
@@ -96,7 +97,7 @@ SimpleDirectoryReader，它可以根据给定目录中的每个文件创建文�
     print(doc)
 ```
 
-## 转换数据 -- 文本切割
+### 转换数据 -- 文本切割
 加载数据后，需要处理和转换数据，然后再将其放入存储系统。
 这些转换包括**分块、提取元数据和嵌入每个块**。这是确保LLM能够检索和最佳使用数据所必需的。
 
@@ -135,10 +136,10 @@ node=====> ced158b1-2d0c-4c44-8c86-e81c5dfa958f
 - 是否支持追问....
 ```
 
-## 索引 & 嵌入(Index & Embedding)
-### 什么是索引
+### 索引 & 嵌入(Index & Embedding)
+#### 什么是索引
 在 LlamaIndex 术语中， Index是由Document对象组成的数据结构，旨在支持LLM查询。您的索引旨在补充您的查询策略。
-#### (Vector Embedding)AKA Embedding
+##### (Vector Embedding)AKA Embedding
 > Embedding is a numerical representation of the semantics, or meaning of your text.
 
 > 用数值表示的语义或含义,相似含义的两段文本具有相似的嵌入(Embedding),即使实际文本完全不同
@@ -148,7 +149,7 @@ node=====> ced158b1-2d0c-4c44-8c86-e81c5dfa958f
 
 嵌入有很多种类型，它们的效率、有效性和计算成本各不相同。默认情况下，LlamaIndex 使用text-embedding-ada-002 ，这是 OpenAI 使用的默认嵌入。如果您使用不同的LLMs您通常会希望使用不同的嵌入。
 
-#### 1. 矢量存储索引嵌入您的文档
+#### 1. 矢量存储索引嵌入文档
 ```python
     from llama_index.core import SimpleDirectoryReader, VectorStoreIndex
     from llama_index.core import SimpleDirectoryReader, VectorStoreIndex
@@ -278,3 +279,72 @@ for doc in documents:
 
 
 ## 查询(Query)
+`!pip install chromadb llama_index.vector_stores.chroma llama_index.embeddings.huggingface llama_index.llms.gemini`
+
+提供的data/data.txt
+```
+I'm 阿歪.
+7年Java，独立开发者,精通Helloworld,掌握JavaSE基础知识，熟悉多线程与并发编程，拥有丰富的系统设计分析能⼒，熟悉常⽤的
+设计模式。
+深⼊理解JVM,熟悉常⽤GC算法，垃圾回收算法，具备实际的JVM调优经验。
+熟悉Mybatis、Hibernate、Spring、SpringMVC、SpringBoot、SpringCloud等主流开源框架，阅读过
+Spring相关源码。
+熟练使⽤MySQL等主流数据库，对数据库优化有⼀定的理解和实际调优能⼒。
+深⼊理解RocketMQ以及RabbitMQ，具备实际⽣产业务落地。
+深⼊理解Redis相关技术，熟悉Redis集群、持久化等相关知识。
+深⼊理解Zookeeper相关技术，理解Paxos算法，ZAB协议。
+精通Kafka相关技术，深⼊理解ISR,OSR,AR,LW,HW,LEO,ACK原理。
+熟悉常⽤的Linux系统的命令，熟悉Docker、Rancher容器管理技术。
+熟练使⽤前端 HTML、JavaScript、Vue、React、NextJS、TailwindCss 等开发技术。
+责任⼼强，上⼿能⼒快，有良好的团队合作意识，善于沟通，能承担⼀定的⼯作压⼒。
+其他语⾔：具有实际使⽤Python数据爬取经验，GoLang个⼈⼩项⽬开发经验。
+```
+
+```python
+    import chromadb
+    from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
+    from llama_index.vector_stores.chroma import ChromaVectorStore
+    from llama_index.core import StorageContext
+    from llama_index.core import Settings
+    from llama_index.embeddings.huggingface import HuggingFaceEmbedding
+    from llama_index.llms.gemini import Gemini
+    from llama_index.core.llms import ChatMessage
+
+
+
+
+    # load some documents
+    documents = SimpleDirectoryReader("./data").load_data()
+
+    # initialize client, setting path to save data
+    db = chromadb.PersistentClient(path="./demo_01/chroma_db")
+
+    # create collection
+    chroma_collection = db.get_or_create_collection("demo_01")
+
+    # assign chroma as the vector_store to the context
+    vector_store = ChromaVectorStore(chroma_collection=chroma_collection)
+    storage_context = StorageContext.from_defaults(vector_store=vector_store)
+    Settings.embed_model = HuggingFaceEmbedding(
+        model_name="BAAI/bge-small-en-v1.5"
+    )
+    # create your index
+    index = VectorStoreIndex.from_documents(
+        documents, storage_context=storage_context
+    )
+
+    from llama_index.llms.gemini import Gemini
+
+    # resp = Gemini().complete("Write a poem about a magic backpack")
+    # print(resp)
+
+    Settings.llm=Gemini()
+
+    # create a query engine and query
+    query_engine = index.as_query_engine()
+    response = query_engine.query("和我简单介绍一下阿歪.保持50个字以内")
+    print(response)
+    # 阿歪是一位经验丰富的Java开发者，精通各种技术，包括JavaSE、多线程、JVM、数据库、消息队列、容器技术等，并熟悉前端开发。 
+
+
+```
