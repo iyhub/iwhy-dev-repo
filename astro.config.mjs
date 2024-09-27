@@ -36,6 +36,16 @@ export default defineConfig({
                 autogenerate: { directory: 'UI Design' },
                 collapsed: false,
             },
+            {
+                label: 'React',
+                autogenerate: { directory: 'React' },
+                collapsed: false,
+            },
+            {
+                label: 'Nextjs',
+                autogenerate: { directory: 'Nextjs' },
+                collapsed: false,
+            },
         ],
 		}), tailwind()],
 });
