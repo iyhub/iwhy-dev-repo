@@ -27,7 +27,7 @@ title: iwhy's home
 
 
 ## 社交媒体
-- Twitter: [@iwhydev](https://twitter.com/sh_awai)
+- Twitter: [@sh_awai](https://twitter.com/sh_awai)
 - 微信公众号: 程序员阿歪
 
 
