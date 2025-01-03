@@ -20,7 +20,7 @@ title: iwhy's home
 - 自媒体鸡汤卡片生成工具. [鸡汤卡片生成器](https://retro.iwhy.dev/)
 - 截图美化工具. [截图美化工具](https://pretty-snap.iwhy.dev/)
 - 公众号封面生成工具. [公众号封面生成工具](https://cover.iwhy.dev/)
-- Tierlify [Tierify AI Tools](https://tierlify.com)
+- Tierlify导航站 [Tierify AI Tools](https://tierlify.com)
 
 ## Slogan
 
