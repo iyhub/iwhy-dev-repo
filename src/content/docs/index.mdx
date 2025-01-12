@@ -2,35 +2,40 @@
 title: 首页
 description: 首页 | 程序员阿歪个人博客
 template: splash
+
 hero:
   tagline: 欢迎来到阿歪的个人博客
   image:
-    file: ../../assets/houston.webp
+    file: ../../assets/dev.svg
   actions:
     - text: 博客
       link: /home
       icon: right-arrow
-    # - text: About
-    #   link: /about
-    #   icon: external
-    #   variant: minimal
----
+    - text: GitHub
+      link: https://github.com/iyhub
+      icon: github
 
+
+---
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-{/* ## Next steps
-
+Recently Projects:
 <CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
+	<Card title="Tierlify" icon="star">
+		Tierlify AI Tools <a href="https://tierlify.com" ref={'dofollow'}>Tierify AI Tools</a>
 	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
+
+	<Card title="简历卡片生成器" icon="open-book">
+		<a href="https://introcard.iwhy.dev">简历卡片生成器(开源)</a>
 	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
+	<Card title="鸡汤卡片生成器" icon="star">
+		<a href="https://retro.iwhy.dev/">鸡汤卡片生成器</a>
 	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
+	<Card title="截图美化工具" icon="star">
+		<a href="https://pretty-snap.iwhy.dev/">截图美化工具</a>
 	</Card>
-</CardGrid> */}
+	<Card title="公众号封面生成工具" icon="star">
+		<a href="https://cover.iwhy.dev/">公众号封面生成工具</a>
+	</Card>
+	
+</CardGrid>

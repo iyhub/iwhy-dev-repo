@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512px" height="512px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>512x512 (Android)@1x</title>
+    <g id="512x512-(Android)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="椭圆形" fill="#000000" cx="256" cy="256" r="256"></circle>
+        <text id="阿歪-DEV" transform="translate(256, 256) rotate(6) translate(-256, -256)" font-family="pingfangfeiyangti" font-size="120" font-weight="normal" fill="#40D30E">
+            <tspan x="141.15625" y="231.5">阿歪</tspan>
+            <tspan x="164.710937" y="341.5">DEV</tspan>
+        </text>
+        <g id="矩形-2" transform="translate(384.9369, 140.3064) rotate(9) translate(-384.9369, -140.3064)translate(346, 121.1424)" fill="#D72323" stroke="#D72323" stroke-width="3">
+            <rect id="矩形" x="1.5" y="1.5" width="74.8738803" height="35.3279415" rx="17.6639707"></rect>
+        </g>
+        <text id="CODER" transform="translate(384.9369, 140.3064) rotate(8) translate(-384.9369, -140.3064)" font-family="JetBrainsMono-Bold, JetBrains Mono" font-size="15" font-weight="bold" fill="#000000">
+            <tspan x="362.43694" y="145.306395">CODER</tspan>
+        </text>
+    </g>
+</svg>
