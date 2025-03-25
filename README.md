@@ -15,3 +15,4 @@
 - 截图美化工具. [截图美化工具](https://pretty-snap.iwhy.dev/)
 - 公众号封面生成工具. [公众号封面生成工具](https://cover.iwhy.dev/)
 - Tierlify导航站 [Tierify AI Tools](https://tierlify.com)
+- 人工智能文本检测工具 [GPT Detect](https://gptdetect.ai/)
