@@ -16,3 +16,4 @@
 - 公众号封面生成工具. [公众号封面生成工具](https://cover.iwhy.dev/)
 - Tierlify导航站 [Tierify AI Tools](https://tierlify.com)
 - 人工智能文本检测工具 [GPT Detect](https://gptdetect.ai/)
+- 基于GPT-4o的图片生成站 [Picool](https://picool.ai/)
