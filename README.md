@@ -18,3 +18,4 @@
 - 人工智能文本检测工具 [GPT Detect](https://gptdetect.ai/)
 - 基于GPT-4o的图片生成站 [Picool](https://picool.ai/)
 - 免费无广告无需注册的临时邮箱 [Temp Mail](https://tempmailpro.org/zh)
+- 另一个导航站:[Nova Tools](https://novatools.ai/)
